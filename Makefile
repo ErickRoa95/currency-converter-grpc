@@ -1,6 +1,6 @@
 protoc:
 	@echo "Running Protoc compiler : `protoc --version` " 
-	@mkdir -p pb
+	@mkdir -p currencygrpc
 	protoc --go_out=currencygrpc --go_opt=paths=source_relative \
     --go-grpc_out=currencygrpc --go-grpc_opt=paths=source_relative \
 		./currencygrpc/currency.proto
