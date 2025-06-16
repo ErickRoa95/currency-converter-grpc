@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+option go_package = "github.com/erickrodriguez/currencygrpc";
+
+message ConverterRequest{
+   required string CountryCode = 1;
+}
+
+message ConverterResponse {
+  required string CurrencyName = 1;
+  required int32 Dollar = 2;
+  required int32 Amount = 3; 
+}
+
+service Currency{
+  rpc Converter(ConverterRequest) returns (ConverterResponse){}
+}
