@@ -1,6 +1,8 @@
 package data
 
-var country_codes = []CountryExchange{ Base:"USD", 
+import "github.com/erickrodriguez/currencygrpc/model"
+
+var COUNTRY_CURRENCIES = []model.Currency{ 
   { Base:"USD", CountryCode:"AED", CurrencyName: "United Arab Emirates Dirham",  Exchange: float32(3.67237) },
   { Base:"USD", CountryCode:"AFN", CurrencyName: "Afghan Afghani",  Exchange: float32(71.000004) },
   { Base:"USD", CountryCode:"ALL", CurrencyName: "Albanian Lek",  Exchange: float32(85.255677) },
@@ -171,4 +173,4 @@ var country_codes = []CountryExchange{ Base:"USD",
   { Base:"USD", CountryCode:"ZAR", CurrencyName: "South African Rand",  Exchange: float32(17.962311) },
   { Base:"USD", CountryCode:"ZMW", CurrencyName: "Zambian Kwacha",  Exchange: float32(23.964628) },
   { Base:"USD", CountryCode:"ZWL", CurrencyName: "Zimbabwean Dollar",  Exchange: float32(322.00) },	
-) },
+}
