@@ -8,12 +8,16 @@ import (
 type DummyCurrencyRepo struct{}
 
 func (*DummyCurrencyRepo) Search(country_code string) (model.Currency, bool) {
-	for i:=0 ; i<len(data.country_codes); i++{ 
-		got := data.country_codes[i]
+	for i:=0 ; i<len(data.COUNTRY_CURRENCIES) ; i++{ 
+		got := data.COUNTRY_CURRENCIES[i]
 		if  got.CountryCode == country_code{ 
-			got, true
+			return got, true
 		}
 	}
 
-	return new(model.Currency), false
+	return model.Currency{}, false
+}
+
+func NewDummyCurrencyRepo () *DummyCurrencyRepo{
+	return &DummyCurrencyRepo{}
 }

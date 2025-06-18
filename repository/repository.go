@@ -3,5 +3,9 @@
 import "github.com/erickrodriguez/currencygrpc/model"
 
  type ICurrencyRepo interface{
-	Found(string) model.Currency
+	Search(string) (model.Currency, bool)
+}
+
+func NewCurrencyRepo () ICurrencyRepo{
+	return NewDummyCurrencyRepo()
 }
