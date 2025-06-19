@@ -68,8 +68,9 @@ func (x *ConverterRequest) GetCountryCode() string {
 type ConverterResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CurrencyName  *string                `protobuf:"bytes,1,req,name=CurrencyName" json:"CurrencyName,omitempty"`
-	Dollar        *int32                 `protobuf:"varint,2,req,name=Dollar" json:"Dollar,omitempty"`
-	Amount        *int32                 `protobuf:"varint,3,req,name=Amount" json:"Amount,omitempty"`
+	CountryCode   *string                `protobuf:"bytes,2,req,name=CountryCode" json:"CountryCode,omitempty"`
+	Base          *string                `protobuf:"bytes,3,req,name=Base" json:"Base,omitempty"`
+	Amount        *float32               `protobuf:"fixed32,4,req,name=Amount" json:"Amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -111,14 +112,21 @@ func (x *ConverterResponse) GetCurrencyName() string {
 	return ""
 }
 
-func (x *ConverterResponse) GetDollar() int32 {
-	if x != nil && x.Dollar != nil {
-		return *x.Dollar
+func (x *ConverterResponse) GetCountryCode() string {
+	if x != nil && x.CountryCode != nil {
+		return *x.CountryCode
 	}
-	return 0
+	return ""
 }
 
-func (x *ConverterResponse) GetAmount() int32 {
+func (x *ConverterResponse) GetBase() string {
+	if x != nil && x.Base != nil {
+		return *x.Base
+	}
+	return ""
+}
+
+func (x *ConverterResponse) GetAmount() float32 {
 	if x != nil && x.Amount != nil {
 		return *x.Amount
 	}
@@ -131,11 +139,12 @@ const file_currencygrpc_currency_proto_rawDesc = "" +
 	"\n" +
 	"\x1bcurrencygrpc/currency.proto\"4\n" +
 	"\x10ConverterRequest\x12 \n" +
-	"\vCountryCode\x18\x01 \x02(\tR\vCountryCode\"g\n" +
+	"\vCountryCode\x18\x01 \x02(\tR\vCountryCode\"\x85\x01\n" +
 	"\x11ConverterResponse\x12\"\n" +
-	"\fCurrencyName\x18\x01 \x02(\tR\fCurrencyName\x12\x16\n" +
-	"\x06Dollar\x18\x02 \x02(\x05R\x06Dollar\x12\x16\n" +
-	"\x06Amount\x18\x03 \x02(\x05R\x06Amount2@\n" +
+	"\fCurrencyName\x18\x01 \x02(\tR\fCurrencyName\x12 \n" +
+	"\vCountryCode\x18\x02 \x02(\tR\vCountryCode\x12\x12\n" +
+	"\x04Base\x18\x03 \x02(\tR\x04Base\x12\x16\n" +
+	"\x06Amount\x18\x04 \x02(\x02R\x06Amount2@\n" +
 	"\bCurrency\x124\n" +
 	"\tConverter\x12\x11.ConverterRequest\x1a\x12.ConverterResponse\"\x00B(Z&github.com/erickrodriguez/currencygrpc"
 

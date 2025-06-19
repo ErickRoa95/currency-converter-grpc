@@ -8,8 +8,9 @@ message ConverterRequest{
 
 message ConverterResponse {
   required string CurrencyName = 1;
-  required int32 Dollar = 2;
-  required int32 Amount = 3; 
+  required string CountryCode = 2;
+  required string Base = 3;
+  required float Amount = 4; 
 }
 
 service Currency{
