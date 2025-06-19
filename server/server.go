@@ -1,4 +1,4 @@
-package server
+package main
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/erickrodriguez/currencygrpc/currencygrpc"
+	pb "github.com/erickrodriguez/currencygrpc/currencygrpc/currencygrpc"
 	"google.golang.org/grpc"
 )
 
@@ -21,10 +21,13 @@ type server struct {
 
 func (s *server) Converter(ctx context.Context, req *pb.ConverterRequest) (*pb.ConverterResponse, error){
 	log.Printf("Received: %v", req)
+	currency := "Mexican pesos"
+	dollar := int32(1)
+	amount:= int32(19)
 	return &pb.ConverterResponse{
-		CurrencyName: "Mexican pesos",
-		Dollar: 1, 
-		Amount: 19,
+		CurrencyName: &currency,
+		Dollar: &dollar, 
+		Amount: &amount,
 	}, nil
 }
 
@@ -40,6 +43,6 @@ func main (){
 	pb.RegisterCurrencyServer(s, &server{})
 	log.Printf("server listening at %v", list.Addr())
 	if err:= s.Serve(list); err != nil {
-		log.Fatalf("Failed to serve : +v", err)
+		log.Fatalf("Failed to serve : %v", err)
 	}
 }
