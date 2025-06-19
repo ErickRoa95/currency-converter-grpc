@@ -1,6 +1,6 @@
 package data
 
-import "github.com/erickrodriguez/currencygrpc/model"
+import "github.com/erickrodriguez/currencygrpc/internal/model"
 
 var COUNTRY_CURRENCIES = []model.Currency{ 
   { Base:"USD", CountryCode:"AED", CurrencyName: "United Arab Emirates Dirham",  Exchange: float32(3.67237) },

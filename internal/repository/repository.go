@@ -1,6 +1,6 @@
  package repository
  
-import "github.com/erickrodriguez/currencygrpc/model"
+import "github.com/erickrodriguez/currencygrpc/internal/model"
 
  type ICurrencyRepo interface{
 	Search(string) (model.Currency, bool)

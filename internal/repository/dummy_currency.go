@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"github.com/erickrodriguez/currencygrpc/model"
-	"github.com/erickrodriguez/currencygrpc/data"
+	"github.com/erickrodriguez/currencygrpc/internal/model"
+	"github.com/erickrodriguez/currencygrpc/internal/data"
 )
 
 type DummyCurrencyRepo struct{}

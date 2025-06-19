@@ -1,0 +1,2 @@
+- GRPC server
+- OpenExchange Api to fulfill calls. https://openexchangerates.org/
