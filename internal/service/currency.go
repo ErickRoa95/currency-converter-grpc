@@ -1,25 +1,24 @@
 package service
 
 import (
-	"log"
-
 	"github.com/erickrodriguez/currencygrpc/internal/model"
 	"github.com/erickrodriguez/currencygrpc/internal/repository"
+
+  "google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type CurrencyService struct {}
 
-func (*CurrencyService) GetCurrencyRate  (code string) (model.Currency){
+func (*CurrencyService) GetCurrencyRate  (code string) (model.Currency, error){
   r := repository.NewCurrencyRepo()
   result, found := r.Search(code)
   if !found {
-    log.Fatalf("ContryCode is not supported.")
+    return model.Currency{}, status.Errorf(codes.NotFound, "CountryCode not Supported.")
   }
 
-  return result
+  return result, nil
 }
-
-func (cs *CurrencyService) ExchangeCurrency(){}
 
 func NewCurrencyService () *CurrencyService{
   return new(CurrencyService)
