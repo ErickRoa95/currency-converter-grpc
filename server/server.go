@@ -8,6 +8,7 @@ import (
 
 	pb "github.com/erickrodriguez/currencygrpc/currencygrpc/currencygrpc"
 	"google.golang.org/grpc"
+	"github.com/erickrodriguez/currencygrpc/server/converter"
 )
 
 var(
@@ -26,7 +27,7 @@ func main (){
 
 	// Create & register server dependencies.
 	s := grpc.NewServer()
-	pb.RegisterCurrencyServer(s, &server{})
+	pb.RegisterCurrencyServer(s, &converter.Server{})
 
 	// Serve Grpc Server at specific port.
 	log.Printf("GRPC Server listening at %v !", list.Addr())
