@@ -1,4 +1,6 @@
- package repository
+//go:generate mockgen -source=repository.go -destination=mock/repository.go
+
+package repository
  
 import "github.com/erickrodriguez/currencygrpc/internal/model"
 
