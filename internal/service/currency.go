@@ -1,3 +1,5 @@
+//go:generate mockgen -source=currency.go -destination=mock/currency.go
+
 package service
 
 import (
@@ -8,11 +10,16 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type CurrencyService struct {}
+type ICurrencyService interface{
+  GetCurrencyRate(string) (model.Currency,error)
+}
 
-func (*CurrencyService) GetCurrencyRate  (code string) (model.Currency, error){
-  r := repository.NewCurrencyRepo()
-  result, found := r.Search(code)
+type CurrencyService struct {
+  cr repository.ICurrencyRepo
+}
+
+func (cs *CurrencyService) GetCurrencyRate  (code string) (model.Currency, error){
+  result, found := cs.cr.Search(code)
   if !found {
     return model.Currency{}, status.Errorf(codes.NotFound, "CountryCode not Supported.")
   }
@@ -20,6 +27,6 @@ func (*CurrencyService) GetCurrencyRate  (code string) (model.Currency, error){
   return result, nil
 }
 
-func NewCurrencyService () *CurrencyService{
-  return new(CurrencyService)
+func NewCurrencyService (irc repository.ICurrencyRepo) ICurrencyService{
+  return &CurrencyService{irc}
 }
