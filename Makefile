@@ -14,5 +14,5 @@ client:
 	@go run client/client.go 
 
 mocks:
-	@echo "== Generating Mocks for Interface susing | Mockgen `mockgen --version` =="
+	@echo "== Generating Mocks for Interface | Mockgen `mockgen --version` =="
 	@go generate ./...
