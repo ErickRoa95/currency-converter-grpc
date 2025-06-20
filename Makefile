@@ -12,3 +12,7 @@ server:
 
 client: 
 	@go run client/client.go 
+
+mocks:
+	@echo "== Generating Mocks for Interface susing | Mockgen `mockgen --version` =="
+	@go generate ./...
