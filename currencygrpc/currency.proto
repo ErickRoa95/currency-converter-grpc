@@ -13,6 +13,19 @@ message ConverterResponse {
   required float Amount = 4; 
 }
 
+ message ExchangeRequest{
+  required string CountryCode = 1;
+  required float Amount = 2;
+ }
+
+message ExchangeResponse{
+  required string CountryCode= 1;
+  required string Base = 2;
+  required float Amount = 3;
+  required float Exchange = 4;
+}
+
 service Currency{
   rpc Converter(ConverterRequest) returns (ConverterResponse){}
+  rpc Exchange(ExchangeRequest) returns (ExchangeResponse){}
 }

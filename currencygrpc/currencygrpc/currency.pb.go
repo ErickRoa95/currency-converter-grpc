@@ -133,6 +133,126 @@ func (x *ConverterResponse) GetAmount() float32 {
 	return 0
 }
 
+type ExchangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CountryCode   *string                `protobuf:"bytes,1,req,name=CountryCode" json:"CountryCode,omitempty"`
+	Amount        *float32               `protobuf:"fixed32,2,req,name=Amount" json:"Amount,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExchangeRequest) Reset() {
+	*x = ExchangeRequest{}
+	mi := &file_currencygrpc_currency_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExchangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExchangeRequest) ProtoMessage() {}
+
+func (x *ExchangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_currencygrpc_currency_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExchangeRequest.ProtoReflect.Descriptor instead.
+func (*ExchangeRequest) Descriptor() ([]byte, []int) {
+	return file_currencygrpc_currency_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ExchangeRequest) GetCountryCode() string {
+	if x != nil && x.CountryCode != nil {
+		return *x.CountryCode
+	}
+	return ""
+}
+
+func (x *ExchangeRequest) GetAmount() float32 {
+	if x != nil && x.Amount != nil {
+		return *x.Amount
+	}
+	return 0
+}
+
+type ExchangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CountryCode   *string                `protobuf:"bytes,1,req,name=CountryCode" json:"CountryCode,omitempty"`
+	Base          *string                `protobuf:"bytes,2,req,name=Base" json:"Base,omitempty"`
+	Amount        *float32               `protobuf:"fixed32,3,req,name=Amount" json:"Amount,omitempty"`
+	Exchange      *float32               `protobuf:"fixed32,4,req,name=Exchange" json:"Exchange,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExchangeResponse) Reset() {
+	*x = ExchangeResponse{}
+	mi := &file_currencygrpc_currency_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExchangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExchangeResponse) ProtoMessage() {}
+
+func (x *ExchangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_currencygrpc_currency_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExchangeResponse.ProtoReflect.Descriptor instead.
+func (*ExchangeResponse) Descriptor() ([]byte, []int) {
+	return file_currencygrpc_currency_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *ExchangeResponse) GetCountryCode() string {
+	if x != nil && x.CountryCode != nil {
+		return *x.CountryCode
+	}
+	return ""
+}
+
+func (x *ExchangeResponse) GetBase() string {
+	if x != nil && x.Base != nil {
+		return *x.Base
+	}
+	return ""
+}
+
+func (x *ExchangeResponse) GetAmount() float32 {
+	if x != nil && x.Amount != nil {
+		return *x.Amount
+	}
+	return 0
+}
+
+func (x *ExchangeResponse) GetExchange() float32 {
+	if x != nil && x.Exchange != nil {
+		return *x.Exchange
+	}
+	return 0
+}
+
 var File_currencygrpc_currency_proto protoreflect.FileDescriptor
 
 const file_currencygrpc_currency_proto_rawDesc = "" +
@@ -144,9 +264,18 @@ const file_currencygrpc_currency_proto_rawDesc = "" +
 	"\fCurrencyName\x18\x01 \x02(\tR\fCurrencyName\x12 \n" +
 	"\vCountryCode\x18\x02 \x02(\tR\vCountryCode\x12\x12\n" +
 	"\x04Base\x18\x03 \x02(\tR\x04Base\x12\x16\n" +
-	"\x06Amount\x18\x04 \x02(\x02R\x06Amount2@\n" +
+	"\x06Amount\x18\x04 \x02(\x02R\x06Amount\"K\n" +
+	"\x0fExchangeRequest\x12 \n" +
+	"\vCountryCode\x18\x01 \x02(\tR\vCountryCode\x12\x16\n" +
+	"\x06Amount\x18\x02 \x02(\x02R\x06Amount\"|\n" +
+	"\x10ExchangeResponse\x12 \n" +
+	"\vCountryCode\x18\x01 \x02(\tR\vCountryCode\x12\x12\n" +
+	"\x04Base\x18\x02 \x02(\tR\x04Base\x12\x16\n" +
+	"\x06Amount\x18\x03 \x02(\x02R\x06Amount\x12\x1a\n" +
+	"\bExchange\x18\x04 \x02(\x02R\bExchange2s\n" +
 	"\bCurrency\x124\n" +
-	"\tConverter\x12\x11.ConverterRequest\x1a\x12.ConverterResponse\"\x00B(Z&github.com/erickrodriguez/currencygrpc"
+	"\tConverter\x12\x11.ConverterRequest\x1a\x12.ConverterResponse\"\x00\x121\n" +
+	"\bExchange\x12\x10.ExchangeRequest\x1a\x11.ExchangeResponse\"\x00B(Z&github.com/erickrodriguez/currencygrpc"
 
 var (
 	file_currencygrpc_currency_proto_rawDescOnce sync.Once
@@ -160,16 +289,20 @@ func file_currencygrpc_currency_proto_rawDescGZIP() []byte {
 	return file_currencygrpc_currency_proto_rawDescData
 }
 
-var file_currencygrpc_currency_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_currencygrpc_currency_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_currencygrpc_currency_proto_goTypes = []any{
 	(*ConverterRequest)(nil),  // 0: ConverterRequest
 	(*ConverterResponse)(nil), // 1: ConverterResponse
+	(*ExchangeRequest)(nil),   // 2: ExchangeRequest
+	(*ExchangeResponse)(nil),  // 3: ExchangeResponse
 }
 var file_currencygrpc_currency_proto_depIdxs = []int32{
 	0, // 0: Currency.Converter:input_type -> ConverterRequest
-	1, // 1: Currency.Converter:output_type -> ConverterResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: Currency.Exchange:input_type -> ExchangeRequest
+	1, // 2: Currency.Converter:output_type -> ConverterResponse
+	3, // 3: Currency.Exchange:output_type -> ExchangeResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -186,7 +319,7 @@ func file_currencygrpc_currency_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_currencygrpc_currency_proto_rawDesc), len(file_currencygrpc_currency_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
