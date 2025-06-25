@@ -7,21 +7,21 @@ import (
 	"net"
 
 	pb "github.com/erickrodriguez/currencygrpc/currencygrpc/currencygrpc"
-	"google.golang.org/grpc"
 	"github.com/erickrodriguez/currencygrpc/server/converter"
+	"google.golang.org/grpc"
 )
 
-var(
+var (
 	port = flag.Int("port", 50051, "The server port")
 )
 
-func main (){
+func main() {
 	flag.Parse()
-	addr:= fmt.Sprintf(":%d", *port)
+	addr := fmt.Sprintf(":%d", *port)
 
 	// Initied listening port for grpc server.
-	list, err:= net.Listen("tcp", addr)
-	if err!=nil {
+	list, err := net.Listen("tcp", addr)
+	if err != nil {
 		log.Fatalf("Failed to listen %v", err)
 	}
 
@@ -31,7 +31,7 @@ func main (){
 
 	// Serve Grpc Server at specific port.
 	log.Printf("GRPC Server listening at %v !", list.Addr())
-	if err:= s.Serve(list); err != nil {
+	if err := s.Serve(list); err != nil {
 		log.Fatalf("Failed to serve : %v", err)
 	}
 }
